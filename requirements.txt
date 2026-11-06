@@ -1,0 +1,9 @@
+# Python Dependencies for Social Media Content Engagement Analysis (DA-020)
+# Group: BT_DA_32 | Section: E | Mentor: Mr. Unwan Khan
+
+pandas>=2.0.0
+numpy>=1.24.0
+matplotlib>=3.7.0
+seaborn>=0.12.0
+notebook>=7.0.0
+ipykernel>=6.20.0
