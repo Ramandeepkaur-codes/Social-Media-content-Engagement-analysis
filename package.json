@@ -1,0 +1,22 @@
+{
+  "name": "social-media-content-engagement-analysis",
+  "version": "1.0.0",
+  "description": "Social Media Content Engagement Analysis (Project ID: DA-020, Group: BT_DA_32, Mentor: Mr. Unwan Khan)",
+  "main": "run_pipeline.py",
+  "scripts": {
+    "start": "python run_pipeline.py",
+    "pipeline": "python run_pipeline.py",
+    "dashboard": "streamlit run app.py",
+    "test": "echo \"Analytics pipeline ready.\""
+  },
+  "keywords": [
+    "data-analytics",
+    "social-media",
+    "engagement-analysis",
+    "python",
+    "pandas"
+  ],
+  "author": "Group BT_DA_32",
+  "license": "MIT"
+}
+
