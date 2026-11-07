@@ -149,7 +149,22 @@ def main():
     print(f"   -> Cleaned dataset saved: {cleaned_csv_path}")
 
     # -------------------------------------------------------------
-    print('\n[2/6] Missing data cleaning and imputation complete.')
+    # 3. GROUP COMPARISONS (Step 3)
+    # -------------------------------------------------------------
+    print("\n[3/6] Computing Format & Timing Group Aggregations...")
+    format_agg = df.groupby('post_type').agg(
+        posts=('post_id', 'count'),
+        avg_reach=('reach', 'mean'),
+        avg_interactions=('total_interactions', 'mean'),
+        mean_err=('err_percent', 'mean'),
+        median_err=('err_percent', 'median'),
+        mean_eri=('eri_percent', 'mean'),
+        avg_saves=('saves', 'mean')
+    ).round(2).sort_values(by='mean_err', ascending=False)
+    print(format_agg)
+
+    # -------------------------------------------------------------
+    print('\n[3/6] Temporal decomposition and format aggregations complete.')
     print('=' * 70)
 
 if __name__ == '__main__':
