@@ -181,7 +181,45 @@ def main():
     print(f"   -> Post performance rankings saved: {rankings_csv}")
 
     # -------------------------------------------------------------
-    print('\n[4/6] Standardized metrics and post performance rankings generated.')
+    # 5. VISUALIZATIONS (Step 5 - 4 Required Charts)
+    # -------------------------------------------------------------
+    print("\n[5/6] Generating 4 Required High-Resolution Charts...")
+    sns.set_theme(style="whitegrid", palette="muted")
+
+    # Chart 1: Bar Chart of Mean ERR % by Format
+    fig, ax = plt.subplots(figsize=(8, 5), dpi=300)
+    fmt_order = ['Reel', 'Carousel', 'Static Image', 'Text Post']
+    fmt_data = df.groupby('post_type')['err_percent'].mean().reindex(fmt_order)
+    colors = ['#1f77b4', '#2ca02c', '#ff7f0e', '#9467bd']
+    bars = ax.bar(fmt_data.index, fmt_data.values, color=colors, width=0.5, edgecolor='#333333', linewidth=1)
+    ax.set_title("Chart 1: Mean Engagement Rate (ERR %) by Content Format", fontsize=13, fontweight='bold', pad=12)
+    ax.set_xlabel("Content Format", fontsize=11, fontweight='bold')
+    ax.set_ylabel("Mean Engagement Rate by Reach (ERR %)", fontsize=11, fontweight='bold')
+    ax.set_ylim(0, max(fmt_data.values) * 1.25)
+    for bar in bars:
+        h = bar.get_height()
+        ax.annotate(f"{h:.2f}%", (bar.get_x() + bar.get_width()/2, h),
+                    xytext=(0, 5), textcoords="offset points", ha='center', fontweight='bold', fontsize=10)
+    plt.tight_layout()
+    chart1_file = os.path.join(charts_dir, "chart1_engagement_by_format.png")
+    plt.savefig(chart1_file)
+    plt.close()
+    print(f"   -> Saved: {chart1_file}")
+
+    # Chart 2: Boxplot of Engagement Spread & Outliers
+    fig, ax = plt.subplots(figsize=(8.5, 5), dpi=300)
+    sns.boxplot(data=df, x='post_type', y='err_percent', order=fmt_order, palette="Set2", width=0.45, ax=ax)
+    sns.stripplot(data=df, x='post_type', y='err_percent', order=fmt_order, color='black', alpha=0.35, jitter=0.2, size=5, ax=ax)
+    ax.set_title("Chart 2: Engagement Rate Distribution & Outliers by Format", fontsize=13, fontweight='bold', pad=12)
+    ax.set_xlabel("Content Format", fontsize=11, fontweight='bold')
+    ax.set_ylabel("Engagement Rate by Reach (ERR %)", fontsize=11, fontweight='bold')
+    plt.tight_layout()
+    chart2_file = os.path.join(charts_dir, "chart2_engagement_distribution_boxplot.png")
+    plt.savefig(chart2_file)
+    plt.close()
+    print(f"   -> Saved: {chart2_file}")
+
+    print('\n[5/6] Format and distribution charts generated.')
     print('=' * 70)
 
 if __name__ == '__main__':
