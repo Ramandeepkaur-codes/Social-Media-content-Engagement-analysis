@@ -219,8 +219,40 @@ def main():
     plt.close()
     print(f"   -> Saved: {chart2_file}")
 
-    print('\n[5/6] Format and distribution charts generated.')
-    print('=' * 70)
+    # Chart 3: Heatmap of Day of Week vs Time Slot
+    fig, ax = plt.subplots(figsize=(9, 5.5), dpi=300)
+    day_order = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+    slot_order = ['Morning (6AM-12PM)', 'Afternoon (12PM-5PM)', 'Evening (5PM-9PM)', 'Night (9PM-6AM)']
+    pivot_heatmap = df.pivot_table(index='day_of_week', columns='time_slot', values='err_percent', aggfunc='mean')
+    pivot_heatmap = pivot_heatmap.reindex(index=day_order, columns=slot_order)
+    sns.heatmap(pivot_heatmap, annot=True, fmt=".2f", cmap="YlGnBu", linewidths=0.8, cbar_kws={'label': 'Mean ERR (%)'}, ax=ax)
+    ax.set_title("Chart 3: Publishing Heatmap — Engagement Density across Week & Day Slots", fontsize=13, fontweight='bold', pad=12)
+    ax.set_xlabel("Publishing Time Window", fontsize=11, fontweight='bold')
+    ax.set_ylabel("Day of Week", fontsize=11, fontweight='bold')
+    plt.tight_layout()
+    chart3_file = os.path.join(charts_dir, "chart3_timing_heatmap.png")
+    plt.savefig(chart3_file)
+    plt.close()
+    print(f"   -> Saved: {chart3_file}")
 
-if __name__ == '__main__':
+    # Chart 4: Reach vs Total Interactions (Virality Curve)
+    fig, ax = plt.subplots(figsize=(9, 5.5), dpi=300)
+    sns.scatterplot(data=df, x='reach', y='total_interactions', hue='post_type', hue_order=fmt_order,
+                    style='post_type', s=90, alpha=0.85, palette="tab10", ax=ax)
+    sns.regplot(data=df, x='reach', y='total_interactions', scatter=False, color='#222222',
+                line_kws={'linestyle': '--', 'linewidth': 1.2, 'label': 'Virality Slope'}, ax=ax)
+    ax.set_title("Chart 4: Audience Reach vs. Total Interactions (Virality Efficiency)", fontsize=13, fontweight='bold', pad=12)
+    ax.set_xlabel("Unique Audience Reach", fontsize=11, fontweight='bold')
+    ax.set_ylabel("Total Interactions (Likes + Comments + Shares + Saves)", fontsize=11, fontweight='bold')
+    ax.legend(title="Format", loc="upper left")
+    plt.tight_layout()
+    chart4_file = os.path.join(charts_dir, "chart4_reach_vs_interactions_virality.png")
+    plt.savefig(chart4_file)
+    plt.close()
+    print(f"   -> Saved: {chart4_file}")
+
+    print("\n[6/6] Pipeline Executed Successfully! All deliverables generated.")
+    print("=" * 70)
+
+if __name__ == "__main__":
     main()
