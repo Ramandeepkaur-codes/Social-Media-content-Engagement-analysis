@@ -1,0 +1,16 @@
+post_id,post_type,published_at,impressions,reach,likes,comments,shares,saves,day_of_week,hour_of_day,is_weekend,time_slot,total_interactions,err_percent,eri_percent,comment_to_like_ratio,shares_per_1k_reach,rank_category,rank
+POST_045,Reel,2024-02-21 08:00:00,27060,21937,1936,145,351,517,Wednesday,8,0,Morning (6AM-12PM),2949,13.44,10.9,0.0749,16.0,Top 10 High Performer,1
+POST_041,Reel,2024-02-16 16:00:00,26892,21982,1913,131,331,526,Friday,16,0,Afternoon (12PM-5PM),2901,13.2,10.79,0.0685,15.06,Top 10 High Performer,2
+POST_085,Reel,2024-04-08 00:00:00,25020,20111,1787,152,281,425,Monday,0,0,Night (9PM-6AM),2645,13.15,10.57,0.0851,13.97,Top 10 High Performer,3
+POST_065,Reel,2024-03-15 16:00:00,24129,19364,1647,103,372,417,Friday,16,0,Afternoon (12PM-5PM),2539,13.11,10.52,0.0625,19.21,Top 10 High Performer,4
+POST_053,Reel,2024-03-01 16:00:00,23100,18213,1535,122,259,449,Friday,16,0,Afternoon (12PM-5PM),2365,12.99,10.24,0.0795,14.22,Top 10 High Performer,5
+POST_097,Reel,2024-04-22 00:00:00,22785,17891,1499,91,329,400,Monday,0,0,Night (9PM-6AM),2319,12.96,10.18,0.0607,18.39,Top 10 High Performer,6
+POST_009,Reel,2024-01-10 08:00:00,19687,16101,1376,0,308,357,Wednesday,8,0,Morning (6AM-12PM),2041,12.68,10.37,0.0,19.13,Top 10 High Performer,7
+POST_077,Reel,2024-03-29 16:00:00,25896,19555,1585,141,316,438,Friday,16,0,Afternoon (12PM-5PM),2480,12.68,9.58,0.089,16.16,Top 10 High Performer,8
+POST_069,Reel,2024-03-20 08:00:00,24951,18813,1523,111,359,384,Wednesday,8,0,Morning (6AM-12PM),2377,12.63,9.53,0.0729,19.08,Top 10 High Performer,9
+POST_073,Reel,2024-03-25 00:00:00,22126,17798,1444,105,342,334,Monday,0,0,Night (9PM-6AM),2225,12.5,10.06,0.0727,19.22,Top 10 High Performer,10
+POST_048,Text Post,2024-02-24 20:00:00,4081,2943,89,12,13,5,Saturday,20,1,Evening (5PM-9PM),119,4.04,2.92,0.1348,4.42,Bottom 5 Underperformer,1
+POST_096,Text Post,2024-04-20 20:00:00,4677,3271,105,15,7,6,Saturday,20,1,Evening (5PM-9PM),133,4.07,2.84,0.1429,2.14,Bottom 5 Underperformer,2
+POST_047,Static Image,2024-02-23 16:00:00,5881,4169,147,7,8,16,Friday,16,0,Afternoon (12PM-5PM),178,4.27,3.03,0.0476,1.92,Bottom 5 Underperformer,3
+POST_012,Text Post,2024-01-13 20:00:00,3840,2826,87,19,12,3,Saturday,20,1,Evening (5PM-9PM),121,4.28,3.15,0.2184,4.25,Bottom 5 Underperformer,4
+POST_020,Text Post,2024-01-23 04:00:00,4364,3241,109,16,8,6,Tuesday,4,0,Night (9PM-6AM),139,4.29,3.19,0.1468,2.47,Bottom 5 Underperformer,5

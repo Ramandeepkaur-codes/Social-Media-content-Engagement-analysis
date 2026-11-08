@@ -164,7 +164,24 @@ def main():
     print(format_agg)
 
     # -------------------------------------------------------------
-    print('\n[3/6] Temporal decomposition and format aggregations complete.')
+    # 4. PERFORMANCE RANKINGS (Step 4)
+    # -------------------------------------------------------------
+    print("\n[4/6] Generating Top 10 and Bottom 5 Post Performance Rankings...")
+    top_10 = df.sort_values(by='err_percent', ascending=False).head(10).copy()
+    top_10['rank_category'] = 'Top 10 High Performer'
+    top_10['rank'] = range(1, 11)
+
+    bottom_5 = df.sort_values(by='err_percent', ascending=True).head(5).copy()
+    bottom_5['rank_category'] = 'Bottom 5 Underperformer'
+    bottom_5['rank'] = range(1, 6)
+
+    rankings_df = pd.concat([top_10, bottom_5], ignore_index=True)
+    rankings_csv = os.path.join(outputs_dir, "post_performance_rankings.csv")
+    rankings_df.to_csv(rankings_csv, index=False)
+    print(f"   -> Post performance rankings saved: {rankings_csv}")
+
+    # -------------------------------------------------------------
+    print('\n[4/6] Standardized metrics and post performance rankings generated.')
     print('=' * 70)
 
 if __name__ == '__main__':
